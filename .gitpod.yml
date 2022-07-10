@@ -1,4 +1,4 @@
-image: k33g/wasmcloud-discovery:0.0.1
+image: k33g/wasmcloud-discovery:0.0.2
 
 tasks:
   - name: initialize
@@ -28,6 +28,7 @@ tasks:
       #dotnet workload install wasm-tools
       #dotnet add package Wasi.Sdk --prerelease
       dotnet --version
+      ./03-install-wasmcloud-host-runtime.sh
 
 ports:
   - port: 8080

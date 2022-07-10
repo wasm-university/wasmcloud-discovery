@@ -101,9 +101,9 @@ RUN curl -L https://github.com/nats-io/nats-server/releases/download/v${NATS_VER
     rm -rf nats-server
 
 # Install the wasmCloud host runtime
-ARG WCHR_VERSION="0.54.6"
-ARG WCHR_OS="x86_64-linux"
-RUN wget https://github.com/wasmCloud/wasmcloud-otp/releases/download/v${WCHR_VERSION}/${WCHR_OS}.tar.gz && \
-    sudo mkdir -p $HOME/wasmcloud && \
-    sudo tar -xvf ${WCHR_OS}.tar.gz -C $HOME/wasmcloud && \
-    rm ${WCHR_OS}.tar.gz
+#ARG WCHR_VERSION="0.54.6"
+#ARG WCHR_OS="x86_64-linux"
+#RUN wget https://github.com/wasmCloud/wasmcloud-otp/releases/download/v${WCHR_VERSION}/${WCHR_OS}.tar.gz && \
+#    sudo mkdir -p $HOME/wasmcloud && \
+#    sudo tar -xvf ${WCHR_OS}.tar.gz -C $HOME/wasmcloud && \
+#    rm ${WCHR_OS}.tar.gz
