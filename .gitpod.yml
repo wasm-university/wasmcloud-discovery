@@ -1,4 +1,4 @@
-image: k33g/wasmcloud-discovery:0.0.0
+image: k33g/wasmcloud-discovery:0.0.1
 
 tasks:
   - name: initialize
@@ -47,4 +47,3 @@ vscode:
     - bungcip.better-toml
     - aaron-bond.better-comments
     - grain-lang.vscode-grain
-    - ms-dotnettools.vscode-dotnet-runtime

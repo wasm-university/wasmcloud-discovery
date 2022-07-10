@@ -82,3 +82,28 @@ RUN curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/i
     curl https://get.wasmer.io -sSfL | sh && \
     curl https://wasmtime.dev/install.sh -sSf | bash
 
+
+# ------------------------------------
+# WasmCloud (Cosmonic)
+# ------------------------------------
+# Install wash
+
+RUN curl -s https://packagecloud.io/install/repositories/wasmcloud/core/script.deb.sh | sudo bash && \
+    sudo apt install wash
+
+# Install NATS server
+ARG NATS_VERSION="2.8.4"
+ARG NATS_OS="linux-amd64"
+RUN curl -L https://github.com/nats-io/nats-server/releases/download/v${NATS_VERSION}/nats-server-v${NATS_VERSION}-${NATS_OS}.zip -o nats-server.zip && \
+    unzip nats-server.zip -d nats-server && \
+    sudo cp nats-server/nats-server-v${NATS_VERSION}-${NATS_OS}/nats-server /usr/bin && \
+    rm nats-server.zip && \
+    rm -rf nats-server
+
+# Install the wasmCloud host runtime
+ARG WCHR_VERSION="0.54.6"
+ARG WCHR_OS="x86_64-linux"
+RUN wget https://github.com/wasmCloud/wasmcloud-otp/releases/download/v${WCHR_VERSION}/${WCHR_OS}.tar.gz && \
+    sudo mkdir -p $HOME/wasmcloud && \
+    sudo tar -xvf ${WCHR_OS}.tar.gz -C $HOME/wasmcloud && \
+    rm ${WCHR_OS}.tar.gz
